@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trivial</title>
+    <link rel="stylesheet" href="trivial.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logogeli.png" alt="Logo Trivial" id="logo">
+            <div id="titulo">Preguntas Trivial</div>
+        </div>
+    </header>
+    
+    <form id="form1">
+        
+        <a id="n">1/ </a><label id="pregunta"></label><br><br>
+        <div id="botones">
+        <input type="checkbox"  id="chk1"> <a id="resp1">Respuesta 1</a><br>
+        <input type="checkbox"  id="chk2"> <a id="resp2">Respuesta 2</a><br>
+        <input type="checkbox"  id="chk3"> <a id="resp3">Respuesta 3</a><br>
+        <input type="checkbox"  id="chk4"> <a id="resp4">Respuesta 4</a><br>
+        </div><br>
+        <input type="button" value="Comprobar" id="comprovar" onclick="verificar()">
+        <input type="button" value="Siguiente" id="siguiente" onclick="preguntar()">
+        <a id="correcto"></a><br><a id="finPreguntas"></a>
+    </form>
+
+<script src="trivial.js"></script>
+</body>
+</html>
