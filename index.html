@@ -119,32 +119,7 @@
   </div><div id="visitor-counter" style="text-align: center; font-size : 20px;">Eres el visitante nº: 0</div>
 </footer>
 
-<script>
-  // Función para actualizar el contador de visitas
-  function updateVisitorCount() {
-    // Obtener el número de visitas almacenado o inicializarlo a 0
-    let visitorCount = localStorage.getItem('visitorCount');
-    if (!visitorCount) {
-      visitorCount = 0;
-    } else {
-      visitorCount = parseInt(visitorCount, 10);
-    }
 
-    // Incrementar el contador
-    visitorCount++;
-
-    // Guardar el nuevo número de visitas en localStorage
-    localStorage.setItem('visitorCount', visitorCount);
-
-    // Mostrar el contador en algún lugar de la página
-    document.getElementById('visitor-counter').innerText = `Numero de visitas: ${visitorCount}`;
-  }
-
-  // Ejecutar la función al cargar la página
-  window.onload = function() {
-    updateVisitorCount();
-  };
-</script>
 
 
 
