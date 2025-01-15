@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaser Numeros</title>
+   
+   
+    
+</head>
+<style>
+    
+
+    .R {
+    background-color: rgb(186, 238, 43);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(221, 20, 20);
+    width: 150px;  
+    height: 50px;
+    border-radius: 10%;
+    font-size: 20px;
+}
+
+    #game-contenedor {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-items: center;
+        margin-top: 20px;
+        background-color: aqua;
+        border: solid rgb(146, 146, 202);
+        border-radius: 10%;
+        padding: 20px
+    }
+
+
+    #suma button,
+    #resta button,
+    #multiplica button {
+        background-color: red;
+    }
+
+    button {
+        background-color: blue;
+        color: white;
+        border: none;
+        width: 80px;
+        height: 50px;
+        border-radius: 30%;
+        font-size: 26px;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+        
+    }
+
+    button:hover {
+        color: yellow;
+        transform: scale(1.2);
+
+    }
+    
+    #operaciones {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+
+    }
+    #resp-contenedor, #buscar-contenedor {
+    display: flex; 
+    justify-content: center;  
+    gap: 20px;  
+    margin-top: 20px; 
+    background-color: rgb(161, 224, 151);
+}
+</style>
+
+<body>
+
+    <h1 style="text-align: center; margin-top: 20px; color: blue;">
+        Operaciones Simples</h1>
+
+    <div id="game-contenedor">
+        <div class="G" id="glovo1" onclick="bP(1)"><button>1</button></div>
+        <div class="G" id="glovo2" onclick="bP(2)"><button>2</button></div>
+        <div class="G" id="glovo3" onclick="bP(3)"><button>3</button></div>
+        <div class="G" id="glovo4" onclick="bP(4)"><button>4</button></div>
+        <div class="G" id="glovo5" onclick="bP(5)"><button>5</button></div>
+        <div class="G" id="glovo6" onclick="bP(6)"><button>6</button></div>
+        <div class="G" id="glovo7" onclick="bP(7)"><button>7</button></div>
+        <div class="G" id="glovo8" onclick="bP(8)"><button>8</button></div>
+        <div class="G" id="glovo9" onclick="bP(9)"><button>9</button></div>
+    </div>
+
+    <div id="operaciones">
+        <div class="G" id="suma" onclick="sumaActiva()"><button>+</button></div>
+        <div class="G" id="resta" onclick="restaActiva()"><button>-</button></div>
+        <div class="G" id="multiplica" onclick="multActiva()"><button>x</button></div>
+    </div>
+
+    <div id="buscar-contenedor">
+        <div class="R" id="numAl" style=" color: blue">0000</div>
+        <div class="R" id="Total">0</div>
+    </div>
+
+    <div id="resp-contenedor">
+        <div class="R" id="intentos">Intentos: 0</div>
+        <div class="R" id="teclaPulsada">Pulsa una operacion</div>
+        <div class="R" id="reset" onclick="reset()">reset</div>
+        
+    </div>
+
+    <h1 id="conseguido" style="text-align: center; margin-top: 20px; color: blue;">Buscando numero Aleatorio....</h1>
+
+    <script>
+        let numMax = 1000
+        let numMin =100
+        let numBuscar = Math.floor(Math.random() * (numMax - numMin + 1)) + numMin
+                                        
+        let numAleatorio=document.getElementById("numAl")
+        let numIntent=document.getElementById("intentos")
+        numAleatorio.innerText="Buscando: "+numBuscar
+        
+        let intent=0
+        let total = 0;
+        let num = 0;
+        var restaActivada = false;
+        var sumaActivada = true;
+        var multActivada = false;
+        
+
+        function bP(num) {
+            if (sumaActivada) { total += num; }
+
+            if (restaActivada) { total -= num; }
+
+            if (multActivada) { total = total * num; }
+
+            document.getElementById("Total").innerText = "Total: " + total;
+            numIntent.innerText="Intentos:"+intent;
+            
+            if(total===numBuscar){
+                document.getElementById("conseguido").innerText = "Acertastes con "+ intent+" intentos¡¡ "
+            }
+            intent ++
+        }
+
+        function reset() {
+            num = 0;
+            total = 0;
+            intent=0
+            numBuscar = Math.floor(Math.random() * (numMax - numMin + 1)) + numMin
+            document.getElementById("numAl").innerText = "Buscando: "+numBuscar;
+            numIntent.innerText="Intentos:"+intent;
+            
+            sumaActivada = true
+            restaActivada = false
+            multActivada = false
+            document.getElementById("Total").innerText = " " + num;
+            document.getElementById("conseguido").innerText = "Buscando numero Aleatorio...."
+        }
+
+
+        function sumaActiva() {
+            var colorSuma = document.querySelector("#suma button").style.backgroundColor = "green";
+            var colorResta = document.querySelector("#resta button").style.backgroundColor = "red";
+            var colorMultiplica = document.querySelector("#multiplica button").style.backgroundColor = "red";
+            document.getElementById("teclaPulsada").innerText = "Sumando ";
+            sumaActivada = true
+            restaActivada = false
+            multActivada = false
+
+        }
+        function restaActiva() {
+            var colorResta = document.querySelector("#resta button").style.backgroundColor = "green";
+            var colorSuma = document.querySelector("#suma button").style.backgroundColor = "red";
+            var colorMultiplica = document.querySelector("#multiplica button").style.backgroundColor = "red";
+            document.getElementById("teclaPulsada").innerText = "Restando";
+            restaActivada = true
+            sumaActivada = false
+            multActivada = false
+
+        }
+        function multActiva() {
+            var colorMultiplica = document.querySelector("#multiplica button").style.backgroundColor = "green";
+            var colorSuma = document.querySelector("#suma button").style.backgroundColor = "red";
+            var colorResta = document.querySelector("#resta button").style.backgroundColor = "red";
+            document.getElementById("teclaPulsada").innerText = "Multiplicando";
+            multActivada = true
+            restaActivada = false
+            sumaActivada = false
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logogeli.png" alt="Logo de la web">
+      <span>Programando en JavaScript...</span>
+    </div>
+    <nav class="navigation">
+      <a href="#inicio">Inicio</a>
+      <a href="#links">Enlaces</a>
+      <a href="#contactar">Contacto</a>
+      
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <div class="intro-text">
+      <h2>Bienvenid@ a mi página</h2>
+      <p>Este es mi sitio personal donde subo algunos de los programas y
+         juegos que he creado en JavaScript. Encontrarás proyectos que
+          he ido desarrollando por diversión. Puedes probarlos directamente en 
+          el navegador y ver su código.</p>
+    </div>
+  </section>
+
+  <div class="games-container">
+    <div class="game-card">
+      <img src="juego1.png" alt="Juego 1" class="playImg">
+      <a href="indexninja.html" target="_blank">Ninja Phaser</a>
+      <p class="game-description">Un sencillo juego de plataformas desarrollado con Phaser, 
+        la popular librería de creación de juegos en JavaScript. 
+        Actualmente, solo para PC..</p>
+      <div class="buttons-container">
+      <a href="indexninja.html" class="btn" target="_blank">Jugar</a>
+      <a href="html_ninja.txt" class="btn" target="_blank">Javascript</a>
+    </div></div>
+    <div class="game-card">
+      <img src="juego2.png" alt="Juego 2" class="playImg">
+      <a href="indexNumAl.html" target="_blank">Operaciones de busqueda</a>
+      <p class="game-description">Usa las operaciones para encontrar el numero aleatorio rápidamente.</p>
+      <div class="buttons-container">
+      <a href="indexNumAl.html" class="btn" target="_blank">Jugar</a>
+      <a href="Html_numAl.txt" class="btn" target="_blank">Html</a>
+    </div>
+    </div>
+    <div class="game-card">
+      <img src="juego3.png" alt="Juego 3" class="playImg">
+      <a href="indexjuego3.html" target="_blank">Trivial Basico</a>
+      <p class="game-description">Responde preguntas para demostrar tu conocimiento general.</p>
+      <a href="indextrivial.html" class="btn" target="_blank">Jugar</a>
+    </div>
+    <div class="game-card">
+      <img src="juego4.png" alt="Juego 3" class="playImg">
+      <a href="indexjuego3.html" target="_blank">Adivina la Bandera</a>
+      <p class="game-description">Encuentra a que pais corresponde cada bandera de Europa</p>
+      <a href="indexflags.html" class="btn" target="_blank">Jugar</a>
+    </div>
+    <div class="game-card">
+      <img src="juego5.png" alt="Juego 3" class="playImg">
+      <a href="particulas.html" target="_blank">Evita las pelotas</a>
+      <p class="game-description">Cada vez aparecen mas pelotas, evitalas¡¡¡ realizado con JavaScript simple,
+         sin usar Phaser. Solo para PC</p>
+      <a href="particulas.html" class="btn" target="_blank">Jugar</a>
+    </div>
+  </div>
+  <div id="links">
+    <h4>Aquí tienes algunos enlaces útiles para desarrollar código, 
+      por ejemplo el editor de codigo Visual Studio Code, que es el que utilizo siempre, 
+      y Firebase, donde podrás alojar tus webs personales</h4>
+    <ul>
+        <li>
+            <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>: 
+            Un editor de código gratuito, fácil de usar y personalizable. 
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">JavaScript</a>: 
+            El lenguaje principal para mis proyectos.
+        </li>
+        <li>
+            <a href="https://nodejs.org/" target="_blank">Node.js</a>: 
+            Entorno de ejecución para JavaScript, necesario para el servidor Firebase.
+        </li>
+        <li>
+            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>: 
+            Una herramienta de inteligencia artificial perfecta para responder preguntas,
+             resolver problemas de código y aprender sobre programación.
+        </li>
+        <li>
+            <a href="https://firebase.google.com/" target="_blank">Firebase</a>: 
+            Una plataforma gratuita de Google, ideal para alojar tus webs gratis. 
+        </li>
+    </ul>
+</div>
+<div id="contactar">
+  <h4>Contacto</h4>
+  
+  <ul>
+      <li>Correo: <a href="mailto:juangeli@hotmail.com">juangeli@hotmail.com</a></li>
+      
+      <li>GitHub: <a href="https://github.com/miperfil" target="_blank">Mis Proyectos</a></li>
+  </ul>
+</div>
+<div id="espacio"></div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Juan Geli. Todos los derechos reservados.</p>
+    <ul class="footer-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#links">Enlaces</a></li>
+      <li><a href="#contactar">Contacto</a></li>
+    </ul>
+  </div><div id="visitor-counter" style="text-align: center; font-size : 20px;">Eres el visitante nº: 0</div>
+</footer>
+
+<script>
+  // Función para actualizar el contador de visitas
+  function updateVisitorCount() {
+    // Obtener el número de visitas almacenado o inicializarlo a 0
+    let visitorCount = localStorage.getItem('visitorCount');
+    if (!visitorCount) {
+      visitorCount = 0;
+    } else {
+      visitorCount = parseInt(visitorCount, 10);
+    }
+
+    // Incrementar el contador
+    visitorCount++;
+
+    // Guardar el nuevo número de visitas en localStorage
+    localStorage.setItem('visitorCount', visitorCount);
+
+    // Mostrar el contador en algún lugar de la página
+    document.getElementById('visitor-counter').innerText = `Numero de visitas: ${visitorCount}`;
+  }
+
+  // Ejecutar la función al cargar la página
+  window.onload = function() {
+    updateVisitorCount();
+  };
+</script>
+
+
+
+</body>
+</html>
